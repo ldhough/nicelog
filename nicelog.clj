@@ -99,11 +99,7 @@
            (partition 2)
            (reduce (fn [acc [regex replace-str]]
                      (conj acc [(re-pattern (escape regex)) replace-str]))
-                   []))
-      _ (println "colorize-pairs: ")
-      _ (pprint colorize-pairs)
-      _ (println "replace-patterns")
-      _ (pprint replace-patterns)]
+                   []))]
   (doseq [line (line-seq (java.io.BufferedReader. *in*))]
     (println (-> line
                  (remove-patterns
